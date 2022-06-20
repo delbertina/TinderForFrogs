@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+const minify = require("gulp-babel-minify");
 const postcss = require('gulp-postcss');
 const cssnext = require('postcss-cssnext');
 const babel = require('gulp-babel');
@@ -17,8 +18,11 @@ gulp.task('build-css', _ =>
 gulp.task('build-js', _ =>
   gulp.src('app/*.js')
     .pipe(replace('{%VERSION%}', pkg.version))
-    .pipe(babel({
-      presets: ['babili']
+    .pipe(minify({
+      builtIns: false,
+      mangle: {
+        keepClassName: true
+      }
     }))
     .pipe(gulp.dest('dist'))
 );
