@@ -61,7 +61,7 @@ body {
   color: var(--app__text__color);
   background-color: var(--device_background-color);
 }
-.tinderforbananas {
+.tinderforfrogs {
   position: relative;
   display: flex;
   height: 100%;
@@ -72,7 +72,7 @@ body {
 
   overflow: hidden;
 }
-.tinderforbananas header {
+.tinderforfrogs header {
   flex-shrink: 0;
   height: calc(var(--app__header__height) * 100vh);
   background-color: var(--app__header__color);
@@ -84,20 +84,20 @@ body {
   align-items: center;
   justify-content: center;
 }
-.tinderforbananas header p {
+.tinderforfrogs header p {
   margin: 0;
 }
-.tinderforbananas header .copyright {
+.tinderforfrogs header .copyright {
   font-size: 0.5em;
 }
-.tinderforbananas .view {
+.tinderforfrogs .view {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   height: 100%;
 }
-.tinderforbananas .view--swipelist .item {
+.tinderforfrogs .view--swipelist .item {
   border-radius: calc(var(--app__item__radius) * 100vh);
   background-color: var(--app__item__color);
   margin: 0 calc(var(--app__item__margin) * 100vh);
@@ -110,7 +110,7 @@ body {
   flex-direction: column;
   align-items: stretch;
 }
-.tinderforbananas .view--swipelist .item picture {
+.tinderforfrogs .view--swipelist .item picture {
   position: relative;
   width: 100%;
   flex-grow: 0;
@@ -118,7 +118,7 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
 }
-.tinderforbananas .view--swipelist .item picture:before {
+.tinderforfrogs .view--swipelist .item picture:before {
   content: '';
   display: block;
   width: 100%;
@@ -127,8 +127,8 @@ body {
   padding-bottom: 100%;
 }
 
-.tinderforbananas .view--details .item__details,
-.tinderforbananas .view--swipelist .item__details {
+.tinderforfrogs .view--details .item__details,
+.tinderforfrogs .view--swipelist .item__details {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -136,11 +136,11 @@ body {
   flex-grow: 1;
   padding: calc(var(--app__item__details__padding) * 100vh);
 }
-.tinderforbananas .view--details .item__details {
+.tinderforfrogs .view--details .item__details {
   flex-grow: 0;
   flex-shrink: 0;
 }
-.tinderforbananas .view--swipelist .item .action {
+.tinderforfrogs .view--swipelist .item .action {
   position: absolute;
   font-size: calc(var(--app__action__size) * 100vh);
   text-transform: uppercase;
@@ -153,21 +153,21 @@ body {
   opacity: 0;
   user-select: none;
 }
-.tinderforbananas .view--swipelist .item .action--nope {
+.tinderforfrogs .view--swipelist .item .action--nope {
   right: calc(var(--app__action__offset) * 100vh);
   top: calc(var(--app__action__offset) * 100vh);
   color: var(--app__action--nope__color);
   border-color: var(--app__action--nope__color);
   transform: rotate(calc(var(--app__action__rotation) * 1));
 }
-.tinderforbananas .view--swipelist .item .action--like {
+.tinderforfrogs .view--swipelist .item .action--like {
   left: calc(var(--app__action__offset) * 100vh);
   top: calc(var(--app__action__offset) * 100vh);
   color: var(--app__action--like__color);
   border-color: var(--app__action--like__color);
   transform: rotate(calc(var(--app__action__rotation) * -1));
 }
-.tinderforbananas .view--swipelist .item .action--superlike {
+.tinderforfrogs .view--swipelist .item .action--superlike {
   bottom: calc(var(--app__action__offset) * 100vh);
   left: 50%;
   transform: rotate(calc(var(--app__action__rotation) * -1)) translateX(-50%) ;
@@ -177,8 +177,8 @@ body {
 .hidden {
   display: none !important;
 }
-.tinderforbananas .view--swipelist .item__details,
-.tinderforbananas .view--swipelist nav {
+.tinderforfrogs .view--swipelist .item__details,
+.tinderforfrogs .view--swipelist nav {
   opacity: 1;
   transition: opacity 0.15s ease-in-out;
   -webkit-user-select: none;
@@ -186,52 +186,52 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
-.tinderforbananas .view--swipelist.overlaid picture {
+.tinderforfrogs .view--swipelist.overlaid picture {
   visibility: hidden;
 }
-.tinderforbananas .view--swipelist.overlaid .item__details,
-.tinderforbananas .view--swipelist.overlaid nav {
+.tinderforfrogs .view--swipelist.overlaid .item__details,
+.tinderforfrogs .view--swipelist.overlaid nav {
   opacity: 0;
 }
-.tinderforbananas .view--swipelist + .view--details section,
-.tinderforbananas .view--swipelist + .view--details nav {
+.tinderforfrogs .view--swipelist + .view--details section,
+.tinderforfrogs .view--swipelist + .view--details nav {
   transition: transform 0.15s ease-in-out;
 }
-.tinderforbananas .view--swipelist.overlaid + .view--details section,
-.tinderforbananas .view--swipelist.overlaid + .view--details nav {
+.tinderforfrogs .view--swipelist.overlaid + .view--details section,
+.tinderforfrogs .view--swipelist.overlaid + .view--details nav {
   transform: translateY(50vh);
 }
-.tinderforbananas .view--swipelist__controls {
+.tinderforfrogs .view--swipelist__controls {
   margin-top: auto;
 }
-.tinderforbananas .view--swipelist__controls,
-.tinderforbananas .view--details__controls {
+.tinderforfrogs .view--swipelist__controls,
+.tinderforfrogs .view--details__controls {
   padding: calc(var(--app__control__padding) * 100vh);
 
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-.tinderforbananas .view--details {
+.tinderforfrogs .view--details {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
 }
-.tinderforbananas .view--details__controls {
+.tinderforfrogs .view--details__controls {
   position: absolute;
   bottom: 0;
   width: 100%;
   background-image: var(--app__details__control__background);
 }
-.tinderforbananas .control {
+.tinderforfrogs .control {
   border-radius: 50%;
   background-color: var(--app__control__color);
   box-shadow: var(--app__shadow);
   border: 0;
   padding: 0;
 }
-.tinderforbananas .control svg {
+.tinderforfrogs .control svg {
   width: 100%;
   height: 100%;
   stroke-linecap: round;
@@ -240,44 +240,44 @@ body {
   stroke-width: calc(var(--app__control__line) * 100vh);
   stroke-linejoin: round;
 }
-.tinderforbananas .control--big {
+.tinderforfrogs .control--big {
   width: calc(var(--app__control--big__size) * 100vh);
   height: calc(var(--app__control--big__size) * 100vh);
 }
-.tinderforbananas .control--small {
+.tinderforfrogs .control--small {
   width: calc(var(--app__control--small__size) * 100vh);
   height: calc(var(--app__control--small__size) * 100vh);
 }
-.tinderforbananas .control--nope svg {
+.tinderforfrogs .control--nope svg {
   stroke: var(--app__action--nope__color);
   fill: var(--app__action--nope__color);
 }
-.tinderforbananas .control--like svg {
+.tinderforfrogs .control--like svg {
   stroke: var(--app__action--like__color);
   fill: var(--app__action--like__color);
 }
-.tinderforbananas .control--superlike svg {
+.tinderforfrogs .control--superlike svg {
   stroke: var(--app__action--superlike__color);
   fill: var(--app__action--superlike__color);
 }
-.tinderforbananas .control--undo svg {
+.tinderforfrogs .control--undo svg {
   stroke: var(--app__control--undo__color);
   fill: var(--app__control--undo__color);
 }
-.tinderforbananas .control--inverted svg {
+.tinderforfrogs .control--inverted svg {
   stroke: var(--app__control__color);
   fill: var(--app__control__color);
 }
-.tinderforbananas .control--inverted.control--like {
+.tinderforfrogs .control--inverted.control--like {
   background-color: var(--app__action--like__color);
 }
-.tinderforbananas .control--inverted.control--nope {
+.tinderforfrogs .control--inverted.control--nope {
   background-color: var(--app__action--nope__color);
 }
-.tinderforbananas .control--inverted.control--superlike {
+.tinderforfrogs .control--inverted.control--superlike {
   background-color: var(--app__action--superlike__color);
 }
-tinderforbananas-details {
+tinderforfrogs-details {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -286,38 +286,38 @@ tinderforbananas-details {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-.tinderforbananas .item__details__name {
+.tinderforfrogs .item__details__name {
   font-weight: 700;
 }
-.tinderforbananas .item__details__age {
+.tinderforfrogs .item__details__age {
   margin-left: 0.2em;
 }
-.tinderforbananas .item__details__job,
-.tinderforbananas .item__details__distance {
+.tinderforfrogs .item__details__job,
+.tinderforfrogs .item__details__distance {
   font-size: var(--app__font__size--small);
   flex-basis: 100%;
 }
-.tinderforbananas .item__details__distance {
+.tinderforfrogs .item__details__distance {
   color: var(--app__details__distance__color);
 }
-.tinderforbananas .view--details .description,
-.tinderforbananas .view--details .item__details {
+.tinderforfrogs .view--details .description,
+.tinderforfrogs .view--details .item__details {
   background-color: var(--app__item__color);
 }
-.tinderforbananas .view--details .description {
+.tinderforfrogs .view--details .description {
   flex-grow: 1;
   border-top: 1px solid var(--app__details__distance__color);
   font-size: var(--app__font__size--small);
   padding: calc(var(--app__item__details__padding) * 100vh);
   padding-bottom: calc((var(--app__control--big__size) + 2 * var(--app__control__padding))* 100vh)
 }
-tinderforbananas-carousel {
+tinderforfrogs-carousel {
   position: relative;
   width: 100%;
   flex-shrink: 0;
   overflow: hidden;
 }
-tinderforbananas-carousel:before {
+tinderforfrogs-carousel:before {
   content: '';
   width: 100%;
   display: block;
@@ -325,7 +325,7 @@ tinderforbananas-carousel:before {
   pointer-events: none;
   padding-bottom: 100%;
 }
-tinderforbananas-carousel .carousel__item {
+tinderforfrogs-carousel .carousel__item {
   position: absolute;
   top: 0;
   left: 0;

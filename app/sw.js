@@ -1,13 +1,20 @@
 (function () {
   const VERSION = '{%VERSION%}';
   const files = [
-    'images/bigbanan.jpg',
-    'images/banana.png',
-    'images/banana.svg',
-    'images/testpic1.jpg',
-    'images/testpic2.jpg',
-    'images/testpic3.jpg',
-    'images/testpic4.jpg',
+    'images/frog.png',
+    'images/frog.svg',
+    'images/frog-brown-1.png',
+    'images/frog-brown-2.jpg',
+    'images/frog-brown-3.jpg',
+    'images/frog-brown-4.jpg',
+    'images/frog-green-1.jpg',
+    'images/frog-green-2.jpg',
+    'images/frog-green-3.png',
+    'images/frog-green-4.jpg',
+    'images/frog-white-1.png',
+    'images/frog-white-2.png',
+    'images/frog-white-3.png',
+    'images/frog-white-4.jpg',
     'app.js',
     'ce-carousel.js',
     'ce-details.js',
@@ -20,7 +27,7 @@
   ];
 
   self.oninstall = event => event.waitUntil(
-    caches.open(`tinderforbananas-${VERSION}`)
+    caches.open(`tinderforfrogs-${VERSION}`)
       .then(cache => cache.addAll(files))
   );
 
@@ -30,7 +37,7 @@
         Promise.all(
           cacheNames
             .map(c => c.split('-'))
-            .filter(c => c[0] === 'tinderforbananas')
+            .filter(c => c[0] === 'tinderforfrogs')
             .filter(c => c[1] !== VERSION)
             .map(c => caches.delete(c.join('-')))
         )

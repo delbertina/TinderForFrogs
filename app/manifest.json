@@ -1,12 +1,12 @@
 {
   "background_color": "#ffffff",
-  "name": "Tinder for Bananas",
-  "short_name": "Tinder for Bananas",
+  "name": "Tinder for Frogs",
+  "short_name": "Tinder for Frogs",
   "display": "standalone",
   "icons": [
     {
-      "src": "images/banana.png",
-      "sizes": "192x192",
+      "src": "images/frog.png",
+      "sizes": "304x213",
       "type": "image/png"
     }
   ],

@@ -2,40 +2,31 @@
   const items = [
     {
       id: 0,
-      name: 'Saba',
-      age: 25,
-      job: 'Phillippines',
-      images: ['images/testpic4.jpg', 'images/testpic2.jpg', 'images/testpic1.jpg'],
-      distance: 25,
-      description: 'Swipe for me! You’ll find me very ap-peel-ing'
+      name: 'Charlie',
+      age: 21,
+      job: 'The Bayou',
+      images: ['images/frog-brown-1.png', 'images/frog-brown-2.jpg', 'images/frog-brown-3.jpg', 'images/frog-brown-4.jpg'],
+      distance: 4,
+      description: 'First day on this app, looking to make some awesome friends. Swipe to chat about lily pads! :D'
     },
     {
       id: 1,
-      name: 'Plantain',
-      age: 28,
-      job: 'Nicaragua',
-      images: ['images/testpic2.jpg', 'images/testpic4.jpg'],
-      distance: 4,
-      description: 'Lorem ipsum dolor sit amet, quo ad cibo viris legimus, simul delicata constituto per cu. Pro an commodo liberavisse, cu mutat sensibus tractatos est, animal similique ei nec. Et est molestie phaedrum, ut eam quot meliore. Usu hendrerit complectitur at, at iriure habemus facilisis sit. An eos probo graece.Propriae contentiones eu ius, pro eu ignota liberavisse disputationi, duo ea docendi consectetuer. Cum posse semper ea, ius invidunt qualisque scriptorem cu, ullum reprehendunt pro eu. Illud erant reformidans usu in. Ad vim quem choro iracundia. Ius in case mnesarchum.Duis signiferumque sed cu. Ut duo error congue intellegebat, fugit nostrud urbanitas ei has. Copiosae dissentias te eam, dicta efficiendi mea ad. Numquam persequeris te sea, ad populo graeci per, et mea aperiam noluisse interesset.Malorum abhorreant pri eu, no vidit quaeque mei, usu in dico meliore philosophia. Causae verterem pri in, te case suavitate nam. In ius ignota sanctus. Propriae repudiandae ad sit, gubergren ullamcorper usu ei. Ne vis fierent mediocritatem. Id nominati maluisset ius, soluta graece lobortis ut his, vocibus copiosae placerat est ad.Duo alia ferri impetus ei, deleniti scriptorem comprehensam ius an. Mea ne labore oblique adolescens. Ne velit albucius salutatus quo, cum iudico eripuit bonorum ad. Stet suscipit sea ad. Nec prompta suscipit mandamus at.'
+      name: 'Hank',
+      age: 23,
+      job: 'Everglades',
+      images: ['images/frog-green-1.jpg', 'images/frog-green-2.jpg', 'images/frog-green-3.png', 'images/frog-green-4.jpg'],
+      distance: 16,
+      description: 'I got the goods is you know what I mean.'
     },
     {
       id: 2,
-      name: 'Banan',
-      age: 21,
-      job: 'Finnland',
-      images: ['images/testpic3.jpg', 'images/testpic2.jpg'],
+      name: 'Walter',
+      age: 128,
+      job: 'Bronx Zoo',
+      images: ['images/frog-white-1.png', 'images/frog-white-2.png', 'images/frog-white-3.png', 'images/frog-white-4.jpg'],
       distance: 9,
-      description: 'I like fruits!'
+      description: 'Small dude with a lot of heart. I still live with my parents, grandparents, and cousins, but I hope to be let out soon!'
     },
-    {
-      id: 3,
-      name: 'Actually an orange',
-      age: 12,
-      job: 'Scammer',
-      images: ['images/testpic1.jpg', 'images/testpic2.jpg'],
-      distance: 2455,
-      description: 'Follow me on my totally banana-related Instagram 📸'
-    }
   ];
 
   const dataProvider = (function* () {
@@ -64,7 +55,7 @@
     const top = document.querySelector('.item--top');
     window.ga && ga('send', 'event', `item-${top.data.id}`, event.detail);
     const next = document.querySelector('.item--next');
-    const details = document.querySelector('tinderforbananas-details');
+    const details = document.querySelector('tinderforfrogs-details');
     top.style.transform = '';
     top.selected = 0;
     top.data = next.data;
@@ -110,9 +101,9 @@
     const detailsText1 = details.querySelector('.item__details');
     const detailsText2 = details.querySelector('.description');
     const detailsNav = details.querySelector('nav');
-    const carousel = document.querySelector('tinderforbananas-carousel');
+    const carousel = document.querySelector('tinderforfrogs-carousel');
     const image = document.querySelector('.view--swipelist .item--top picture');
-    details.querySelector('tinderforbananas-details').data = data;
+    details.querySelector('tinderforfrogs-details').data = data;
 
     // Let’s do FLIP!
     const start = image.getBoundingClientRect();
@@ -147,7 +138,7 @@
     const detailsText1 = details.querySelector('.item__details');
     const detailsText2 = details.querySelector('.description');
     const detailsNav = details.querySelector('nav');
-    const carousel = document.querySelector('tinderforbananas-carousel');
+    const carousel = document.querySelector('tinderforfrogs-carousel');
     const item = document.querySelector('.view--swipelist .item--top');
     const image = document.querySelector('.view--swipelist .item--top picture');
 
@@ -202,7 +193,7 @@
     top.addEventListener('details', showDetails);
     const next = document.querySelector('.item--next');
     next.data = dataProvider.next().value;
-    const details = document.querySelector('tinderforbananas-details');
+    const details = document.querySelector('tinderforfrogs-details');
     details.addEventListener('dismiss', hideDetails);
     copyControls();
     adjustSwipeItems();

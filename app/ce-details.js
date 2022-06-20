@@ -1,7 +1,7 @@
-customElements.define('tinderforbananas-details', class extends HTMLElement {
+customElements.define('tinderforfrogs-details', class extends HTMLElement {
   constructor() {
     super();
-    this._carousel = this.querySelector('tinderforbananas-carousel');
+    this._carousel = this.querySelector('tinderforfrogs-carousel');
   }
 
   connectedCallback() {
@@ -29,7 +29,7 @@ customElements.define('tinderforbananas-details', class extends HTMLElement {
     this.querySelector('.item__details__name').textContent = this.data.name;
     this.querySelector('.item__details__age').textContent = this.data.age;
     this.querySelector('.item__details__job').textContent = this.data.job;
-    this.querySelector('.item__details__distance').textContent = `${this.data.distance} miles away`;
+    this.querySelector('.item__details__distance').textContent = `${this.data.distance} chunks away`;
     this.querySelector('.description').textContent = this.data.description;
   }
 });
