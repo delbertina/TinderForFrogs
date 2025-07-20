@@ -1,7 +1,10 @@
-export interface FrogDetailsProps {}
+export interface FrogDetailsProps {
+    className?: string;
+    children?: React.ReactNode
+}
 
 const FrogDetails = (props: FrogDetailsProps) => {
-    return <div></div>
+    return <div className={props.className}>{props.children}</div>
 }
 
 export default FrogDetails

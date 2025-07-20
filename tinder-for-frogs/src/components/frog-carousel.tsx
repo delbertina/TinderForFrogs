@@ -1,7 +1,9 @@
-export interface FrogCarouselProps {}
+export interface FrogCarouselProps {
+    className?: string
+}
 
 const FrogCarousel = (props: FrogCarouselProps) => {
-    return <div></div>
+    return <div className={props.className}></div>
 }
 
 export default FrogCarousel
