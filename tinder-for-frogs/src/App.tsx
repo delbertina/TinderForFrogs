@@ -22,28 +22,7 @@ function App() {
           <FrogItem className="item item--top"></FrogItem>
           <nav className="view--swipelist__controls">
             <button className="control control--small control--undo">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-50 -50 100 100"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <path
-                  fill="none"
-                  d="
-            M -15 0
-            A 15 15 0 1 0 0 -15
-          "
-                />
-                <path
-                  d="
-            M 0 -15
-            L 0 -22
-            L -10 -15
-            L 0 -8
-            z
-          "
-                />
-              </svg>
+              <img src="/assets/left-arrow.svg" alt="left arrow" />
             </button>
             <button className="control control--big control--nope">
               <svg
@@ -56,45 +35,10 @@ function App() {
               </svg>
             </button>
             <button className="control control--big control--like">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-50 -50 100 90"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <path
-                  d="
-            M 0 15
-            L -15 0
-            A 10 10 0 1 1 0 -10
-            A 10 10 0 1 1 15 0
-            L 15 0
-            z
-          "
-                />
-              </svg>
+              <img src="/assets/heart.svg" alt="heart" />
             </button>
             <button className="control control--small control--superlike">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="-50 -50 100 100"
-                preserveAspectRatio="xMidYMid meet"
-              >
-                <path
-                  d="
-            M 0.000 10.000
-            L 11.756 16.180
-            L 9.511 3.090
-            L 19.021 -6.180
-            L 5.878 -8.090
-            L 0.000 -20.000
-            L -5.878 -8.090
-            L -19.021 -6.180
-            L -9.511 3.090
-            L -11.756 16.1805
-            z
-          "
-                />
-              </svg>
+              <img src="/assets/star.svg" alt="star" />
             </button>
           </nav>
         </section>
