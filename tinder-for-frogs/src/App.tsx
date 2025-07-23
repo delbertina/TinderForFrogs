@@ -43,8 +43,8 @@ function App() {
           </nav>
         </section>
         <section className="view view--details hidden">
-          <FrogDetails>
-            <FrogCarousel></FrogCarousel>
+          <FrogDetails className="tinderforfrogs-details">
+            <FrogCarousel className="tinderforfrogs-carousel"></FrogCarousel>
             <section className="item__details">
               <span className="item__details__name"></span>,
               <span className="item__details__age"></span>

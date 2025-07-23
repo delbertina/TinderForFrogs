@@ -277,7 +277,7 @@ body {
 .tinderforfrogs .control--inverted.control--superlike {
   background-color: var(--app__action--superlike__color);
 }
-tinderforfrogs-details {
+.tinderforfrogs-details {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -311,13 +311,13 @@ tinderforfrogs-details {
   padding: calc(var(--app__item__details__padding) * 100vh);
   padding-bottom: calc((var(--app__control--big__size) + 2 * var(--app__control__padding))* 100vh)
 }
-tinderforfrogs-carousel {
+.tinderforfrogs-carousel {
   position: relative;
   width: 100%;
   flex-shrink: 0;
   overflow: hidden;
 }
-tinderforfrogs-carousel:before {
+.tinderforfrogs-carousel:before {
   content: '';
   width: 100%;
   display: block;
@@ -325,7 +325,7 @@ tinderforfrogs-carousel:before {
   pointer-events: none;
   padding-bottom: 100%;
 }
-tinderforfrogs-carousel .carousel__item {
+.tinderforfrogs-carousel .carousel__item {
   position: absolute;
   top: 0;
   left: 0;
