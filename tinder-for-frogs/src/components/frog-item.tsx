@@ -23,11 +23,11 @@ const Frogitem = (props: FrogItemProps) => {
 
     return () => {
       document.removeEventListener('mousedown', startDrag);
-      document.removeEventListener('touchstart', stopDrag);
+      document.removeEventListener('touchstart', startDrag);
       document.removeEventListener('mousemove', drag);
-      document.removeEventListener('touchmove', startDrag);
+      document.removeEventListener('touchmove', drag);
       document.removeEventListener('mouseup', stopDrag);
-      document.removeEventListener('touchend', drag);
+      document.removeEventListener('touchend', stopDrag);
     };
   }, [dragging, startX]);
 
@@ -38,41 +38,41 @@ const Frogitem = (props: FrogItemProps) => {
     event.stopPropagation();
   }
 
-  const drag = (event) => {
-    if (!this._dragging) return;
-    let deltaX = (event.clientX || event.touches[0].clientX) - this._startX;
-    const maxDelta = this._width * (this._images.length - this.selected);
-    if (this.selected === 0 && deltaX > 0) deltaX = 0;
-    if (this.selected === this._images.length-1 && deltaX < 0) deltaX = 0;
-    this._images.forEach(img => img.style.transform = `translateX(${deltaX}px)`);
+  const drag = (event: MouseEvent | TouchEvent) => {
+    if (!dragging) return;
+    let deltaX = (event instanceof MouseEvent ? event.clientX : event.touches[0].clientX) - startX;
+    const maxDelta = width * (images.length - selected);
+    if (selected === 0 && deltaX > 0) deltaX = 0;
+    if (selected === images.length-1 && deltaX < 0) deltaX = 0;
+    images.forEach(img => img.style.transform = `translateX(${deltaX}px)`);
     event.preventDefault();
     event.stopPropagation();
   }
 
-  const stopDrag = (event) => {
-    if (!this._dragging) return;
-    this._dragging = false;
-    let deltaX = (event.clientX || event.changedTouches[0].clientX) - this._startX;
-    if (Math.abs(deltaX) < 10) return this.dispatchEvent(
+  const stopDrag = (event: MouseEvent | TouchEvent) => {
+    if (!dragging) return;
+    setDragging(false);
+    let deltaX = (event instanceof MouseEvent ? event.clientX : event.changedTouches[0].clientX) - startX;
+    if (Math.abs(deltaX) < 10) return dispatchEvent(
       new CustomEvent('dismiss', {
         detail: {
-          selected: this.selected
+          selected: selected
         },
         bubbles: true
       })
     );
-    if (this.selected === 0 && deltaX > 0) deltaX = 0;
-    if (this.selected === this._images.length-1 && deltaX < 0) deltaX = 0;
+    if (selected === 0 && deltaX > 0) deltaX = 0;
+    if (selected === images.length-1 && deltaX < 0) deltaX = 0;
 
     let idxOffset = 0;
-    if (deltaX > this._width/4) idxOffset = 1;
-    if (deltaX < -this._width/4) idxOffset = -1;
-    this.selected -= idxOffset;
+    if (deltaX > width/4) idxOffset = 1;
+    if (deltaX < -width/4) idxOffset = -1;
+    selected -= idxOffset;
     
-    const r1 = this._images[0].getBoundingClientRect();
-    this.updateChildren();
-    const r2 = this._images[0].getBoundingClientRect();
-    this._images.forEach(img => img.style.transform = `translateX(${r1.left - r2.left}px)`);
+    const r1 = images[0].getBoundingClientRect();
+    updateChildren();
+    const r2 = images[0].getBoundingClientRect();
+    images.forEach(img => img.style.transform = `translateX(${r1.left - r2.left}px)`);
 
     requestAnimationFramePromise()
       .then(_ => requestAnimationFramePromise())
