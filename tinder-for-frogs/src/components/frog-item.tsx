@@ -12,6 +12,8 @@ const Frogitem = (props: FrogItemProps) => {
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [selected, setSelected] = useState(0);
+  const [width, setWidth] = useState(1);
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
     document.addEventListener('mousedown', startDrag);
@@ -67,43 +69,43 @@ const Frogitem = (props: FrogItemProps) => {
     let idxOffset = 0;
     if (deltaX > width/4) idxOffset = 1;
     if (deltaX < -width/4) idxOffset = -1;
-    selected -= idxOffset;
+    setSelected(selected - idxOffset);
     
     const r1 = images[0].getBoundingClientRect();
-    updateChildren();
+    // updateChildren();
     const r2 = images[0].getBoundingClientRect();
     images.forEach(img => img.style.transform = `translateX(${r1.left - r2.left}px)`);
 
-    requestAnimationFramePromise()
-      .then(_ => requestAnimationFramePromise())
-      .then(_ => {
-        this._images.forEach(img => {
-          img.style.transition = 'transform 0.1s ease-in-out';
-        });
-      })
-      .then(_ => requestAnimationFramePromise())
-      .then(_ => requestAnimationFramePromise())
-      .then(_ => {
-        this._images.forEach(img => img.style.transform = '');
-        return transitionEndPromise(this);
-      }) 
-      .then(_ => this._images.forEach(img => img.style.transition = ''));
+  //   requestAnimationFramePromise()
+  //     .then(_ => requestAnimationFramePromise())
+  //     .then(_ => {
+  //       this._images.forEach(img => {
+  //         img.style.transition = 'transform 0.1s ease-in-out';
+  //       });
+  //     })
+  //     .then(_ => requestAnimationFramePromise())
+  //     .then(_ => requestAnimationFramePromise())
+  //     .then(_ => {
+  //       this._images.forEach(img => img.style.transform = '');
+  //       return transitionEndPromise(this);
+  //     }) 
+  //     .then(_ => this._images.forEach(img => img.style.transition = ''));
 
-    event.preventDefault();
-    event.stopPropagation();
+  //   event.preventDefault();
+  //   event.stopPropagation();
   }
 
-  updateChildren() {
-    this._images = this.querySelectorAll('.carousel__item');
-    if (this._images.length <= 0) return;
-    for (let i = 0; i < this._images.length; i++) {
-      this._images[i].style.left = `${100*(i-this.selected)}%`;
-      this._images[i].style.transform = '';
-    }
-    const last = this._images[this._images.length-1];
-    const rect = last.getBoundingClientRect();
-    this._width = rect.width;
-  }
+  // updateChildren() {
+  //   this._images = this.querySelectorAll('.carousel__item');
+  //   if (this._images.length <= 0) return;
+  //   for (let i = 0; i < this._images.length; i++) {
+  //     this._images[i].style.left = `${100*(i-this.selected)}%`;
+  //     this._images[i].style.transform = '';
+  //   }
+  //   const last = this._images[this._images.length-1];
+  //   const rect = last.getBoundingClientRect();
+  //   this._width = rect.width;
+  // }
 
   return (
     <div className={props.className}>

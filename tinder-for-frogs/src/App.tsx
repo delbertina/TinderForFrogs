@@ -1,4 +1,7 @@
 import "./App.css";
+import HeartSVG from "./assets/heart-svg";
+import LeftArrowSVG from "./assets/left-arrow-svg";
+import StarSVG from "./assets/star-svg";
 import FrogCarousel from "./components/frog-carousel";
 import FrogDetails from "./components/frog-details";
 import FrogItem from "./components/frog-item";
@@ -22,7 +25,7 @@ function App() {
           <FrogItem className="item item--top"></FrogItem>
           <nav className="view--swipelist__controls">
             <button className="control control--small control--undo">
-              <img src="/assets/left-arrow.svg" alt="left arrow" />
+              <LeftArrowSVG />
             </button>
             <button className="control control--big control--nope">
               <svg
@@ -35,10 +38,10 @@ function App() {
               </svg>
             </button>
             <button className="control control--big control--like">
-              <img src="/assets/heart.svg" alt="heart" />
+              <HeartSVG />
             </button>
             <button className="control control--small control--superlike">
-              <img src="/assets/star.svg" alt="star" />
+              <StarSVG />
             </button>
           </nav>
         </section>

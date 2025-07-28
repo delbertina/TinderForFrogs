@@ -1,5 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 100 100" preserveAspectRatio="xMidYMid meet">
-    <path d="
+const StarSVG = () => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-50 -50 100 100"
+      preserveAspectRatio="xMidYMid meet"
+    >
+      <path
+        d="
             M 0.000 10.000
             L 11.756 16.180
             L 9.511 3.090
@@ -11,5 +18,10 @@
             L -9.511 3.090
             L -11.756 16.1805
             z
-          " />
-</svg>
+          "
+      />
+    </svg>
+  );
+};
+
+export default StarSVG;
