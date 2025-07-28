@@ -8,7 +8,6 @@ export interface FrogItemProps {
 }
 
 const Frogitem = (props: FrogItemProps) => {
-
   const [dragging, setDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [selected, setSelected] = useState(0);
@@ -16,84 +15,94 @@ const Frogitem = (props: FrogItemProps) => {
   const [images, setImages] = useState<HTMLImageElement[]>([]);
 
   useEffect(() => {
-    document.addEventListener('mousedown', startDrag);
-    document.addEventListener('mouseup', stopDrag); 
-    document.addEventListener('mousemove', drag); 
-    document.addEventListener('touchstart', startDrag);
-    document.addEventListener('touchend', stopDrag); 
-    document.addEventListener('touchmove', drag);
-
+    document.addEventListener("mousedown", startDrag);
+    document.addEventListener("mouseup", stopDrag);
+    document.addEventListener("mousemove", drag);
+    document.addEventListener("touchstart", startDrag);
+    document.addEventListener("touchend", stopDrag);
+    document.addEventListener("touchmove", drag);
+    console.log(props);
     return () => {
-      document.removeEventListener('mousedown', startDrag);
-      document.removeEventListener('touchstart', startDrag);
-      document.removeEventListener('mousemove', drag);
-      document.removeEventListener('touchmove', drag);
-      document.removeEventListener('mouseup', stopDrag);
-      document.removeEventListener('touchend', stopDrag);
+      document.removeEventListener("mousedown", startDrag);
+      document.removeEventListener("touchstart", startDrag);
+      document.removeEventListener("mousemove", drag);
+      document.removeEventListener("touchmove", drag);
+      document.removeEventListener("mouseup", stopDrag);
+      document.removeEventListener("touchend", stopDrag);
     };
-  }, [dragging, startX]);
+  }, []);
 
   const startDrag = (event: MouseEvent | TouchEvent) => {
     setDragging(true);
-    setStartX(event instanceof MouseEvent ? event?.clientX : event?.touches[0].clientX);
+    setStartX(
+      event instanceof MouseEvent ? event?.clientX : event?.touches[0].clientX
+    );
     event.preventDefault();
     event.stopPropagation();
-  }
+  };
 
   const drag = (event: MouseEvent | TouchEvent) => {
     if (!dragging) return;
-    let deltaX = (event instanceof MouseEvent ? event.clientX : event.touches[0].clientX) - startX;
+    let deltaX =
+      (event instanceof MouseEvent ? event.clientX : event.touches[0].clientX) -
+      startX;
     const maxDelta = width * (images.length - selected);
     if (selected === 0 && deltaX > 0) deltaX = 0;
-    if (selected === images.length-1 && deltaX < 0) deltaX = 0;
-    images.forEach(img => img.style.transform = `translateX(${deltaX}px)`);
+    if (selected === images.length - 1 && deltaX < 0) deltaX = 0;
+    images.forEach((img) => (img.style.transform = `translateX(${deltaX}px)`));
     event.preventDefault();
     event.stopPropagation();
-  }
+  };
 
   const stopDrag = (event: MouseEvent | TouchEvent) => {
     if (!dragging) return;
     setDragging(false);
-    let deltaX = (event instanceof MouseEvent ? event.clientX : event.changedTouches[0].clientX) - startX;
-    if (Math.abs(deltaX) < 10) return dispatchEvent(
-      new CustomEvent('dismiss', {
-        detail: {
-          selected: selected
-        },
-        bubbles: true
-      })
-    );
+    let deltaX =
+      (event instanceof MouseEvent
+        ? event.clientX
+        : event.changedTouches[0].clientX) - startX;
+    if (Math.abs(deltaX) < 10)
+      return dispatchEvent(
+        new CustomEvent("dismiss", {
+          detail: {
+            selected: selected,
+          },
+          bubbles: true,
+        })
+      );
     if (selected === 0 && deltaX > 0) deltaX = 0;
-    if (selected === images.length-1 && deltaX < 0) deltaX = 0;
+    if (selected === images.length - 1 && deltaX < 0) deltaX = 0;
 
     let idxOffset = 0;
-    if (deltaX > width/4) idxOffset = 1;
-    if (deltaX < -width/4) idxOffset = -1;
+    if (deltaX > width / 4) idxOffset = 1;
+    if (deltaX < -width / 4) idxOffset = -1;
     setSelected(selected - idxOffset);
-    
+
     const r1 = images[0].getBoundingClientRect();
     // updateChildren();
     const r2 = images[0].getBoundingClientRect();
-    images.forEach(img => img.style.transform = `translateX(${r1.left - r2.left}px)`);
+    images.forEach(
+      (img) => (img.style.transform = `translateX(${r1.left - r2.left}px)`)
+    );
 
-  //   requestAnimationFramePromise()
-  //     .then(_ => requestAnimationFramePromise())
-  //     .then(_ => {
-  //       this._images.forEach(img => {
-  //         img.style.transition = 'transform 0.1s ease-in-out';
-  //       });
-  //     })
-  //     .then(_ => requestAnimationFramePromise())
-  //     .then(_ => requestAnimationFramePromise())
-  //     .then(_ => {
-  //       this._images.forEach(img => img.style.transform = '');
-  //       return transitionEndPromise(this);
-  //     }) 
-  //     .then(_ => this._images.forEach(img => img.style.transition = ''));
+    //   requestAnimationFramePromise()
+    //     .then(_ => requestAnimationFramePromise())
+    //     .then(_ => {
+    //       this._images.forEach(img => {
+    //         img.style.transition = 'transform 0.1s ease-in-out';
+    //       });
+    //     })
+    //     .then(_ => requestAnimationFramePromise())
+    //     .then(_ => requestAnimationFramePromise())
+    //     .then(_ => {
+    //       this._images.forEach(img => img.style.transform = '');
+    //       return transitionEndPromise(this);
+    //     })
+    //     .then(_ => this._images.forEach(img => img.style.transition = ''));
 
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  }
+    //   event.preventDefault();
+    //   event.stopPropagation();
+  };
 
   // updateChildren() {
   //   this._images = this.querySelectorAll('.carousel__item');
@@ -110,10 +119,15 @@ const Frogitem = (props: FrogItemProps) => {
   return (
     <div className={props.className}>
       <picture>
+        <img src={props.frog?.images[0]} />
         {/* This is conditional */}
         <div className="action action--nope">Nope</div>
         <div className="action action--like">Like</div>
-        <div className="action action--superlike">Super<br />Like</div>
+        <div className="action action--superlike">
+          Super
+          <br />
+          Like
+        </div>
       </picture>
       <div className="item__details">
         <span className="item__details__name"></span>,

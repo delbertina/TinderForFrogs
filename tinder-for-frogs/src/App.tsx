@@ -5,6 +5,7 @@ import StarSVG from "./assets/star-svg";
 import FrogCarousel from "./components/frog-carousel";
 import FrogDetails from "./components/frog-details";
 import FrogItem from "./components/frog-item";
+import { Frogs } from "./data/frogs";
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
               </a>
             </p>
           </header>
-          <FrogItem className="item item--next hidden" inmovable></FrogItem>
-          <FrogItem className="item item--top"></FrogItem>
+          {/* <FrogItem className="item item--next hidden" inmovable></FrogItem> */}
+          <FrogItem className="item item--top" frog={Frogs[0]}></FrogItem>
           <nav className="view--swipelist__controls">
             <button className="control control--small control--undo">
               <LeftArrowSVG />
